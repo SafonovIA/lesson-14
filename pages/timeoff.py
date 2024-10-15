@@ -18,6 +18,7 @@ class Dialog(StackTemplate):
 
     def fill_timeoff(self, **kwargs):
         """Заполнение формы отгула"""
+        self.check_open()
 
         assert 'Сотрудник_автозаполнение' or 'Сотрудник' and 'Причина' in kwargs.keys(), 'Отсутствуют нужный параметры'
 
@@ -44,12 +45,11 @@ class Dialog(StackTemplate):
 
     def check_filds(self, **kwargs):
         """Проверить заполненные поля"""
-        if 'Сотрудник_автозаполнение' in kwargs.keys():
-            self.employee_cl.should_be(ExactText(kwargs['Сотрудник_автозаполнение']))
-        if 'Сотрудник' in kwargs.keys():
-            self.employee_cl.should_be(ExactText(kwargs['Сотрудник']))
-        if "Причина" in kwargs.keys():
-            self.couse_re.should_be(ExactText(kwargs['Причина']))
+
+        self.check_open()
+        self.employee_cl.should_be(ExactText(kwargs.get('Сотрудник_автозаполнение', kwargs.get("Сотрудник"))))
+        self.couse_re.should_be(ExactText(kwargs['Причина']))
+
         if "Дата" in kwargs.keys():
             self.change_dete_timeoff_elm.element('input').should_be(Attribute(value=kwargs['Дата']))
         if "Время" in kwargs.keys():

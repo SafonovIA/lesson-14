@@ -22,10 +22,10 @@ class TimeOff(Region):
         timeoff_card.check_open()
         return timeoff_card
 
-    def open_timeoff(self, **kwargs):
+    def open_timeoff(self, couse):
         """Открыть отгул"""
 
-        self.list_tgv.row(contains_text=kwargs['Причина']).click()
+        self.list_tgv.row(contains_text=couse).click()
 
     def exist_timeoff(self, couse, exist=True):
         """Проверка на отсутствие отгула в реестре"""
