@@ -22,16 +22,18 @@ class TimeOff(Region):
         timeoff_card.check_open()
         return timeoff_card
 
-    def chech_timeoff(self, **kwargs):
-        """Проверка на наличие отгула в реестре"""
+    def open_timeoff(self, **kwargs):
+        """Открыть отгул"""
 
-        self.list_tgv.row(contains_text=kwargs['Причина']).should_be(Displayed)
-        self.list_tgv.row(contains_text=kwargs['Сотрудник']).should_be(Displayed).click()
+        self.list_tgv.row(contains_text=kwargs['Причина']).click()
 
-    def is_deleted_timeoff(self, **kwargs):
+    def exist_timeoff(self, couse, exist=True):
         """Проверка на отсутствие отгула в реестре"""
+        if exist:
+            self.list_tgv.row(contains_text=couse).should_be(Displayed)
+        else:
+            self.list_tgv.row(contains_text=couse).should_not_be(Displayed)
 
-        self.list_tgv.row(contains_text=kwargs['Причина']).should_not_be(Displayed)
 
 
 
