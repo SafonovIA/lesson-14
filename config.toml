@@ -1,0 +1,10 @@
+[general]
+BROWSER = "chrome"
+ELEMENT_OUTPUT_LOG = "user_friendly"
+DO_NOT_RESTART = true
+SOFT_RESTART = false
+
+[custom]
+SITE = 'https://fix-online.sbis.ru/page/work-schedule-documents'
+LOGIN = "Регламент123"
+PASSWORD = "Регламент1231"
