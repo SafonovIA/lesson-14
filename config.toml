@@ -3,8 +3,9 @@ BROWSER = "chrome"
 ELEMENT_OUTPUT_LOG = "user_friendly"
 DO_NOT_RESTART = true
 SOFT_RESTART = false
+SITE = 'https://fix-online.sbis.ru/'
+PROXY_ADDRESS = "dts-proxy-outside-squid.dev-dts-proxy-outside.svc.qa1-dpc.k8s.tensor.ru:3128"
 
 [custom]
-SITE = 'https://fix-online.sbis.ru/page/work-schedule-documents'
 LOGIN = "Регламент123"
 PASSWORD = "Регламент1231"

@@ -56,7 +56,7 @@ class Dialog(StackTemplate):
             tm = kwargs['Время'].split('-')
             self.time_1_elm.should_be(ContainsText(tm[0]))
             self.time_2_elm.should_be(ContainsText(tm[1]))
-
+        self.check_close(self.close_btn.click)
     def delete_timeoff(self):
         """Удалить отгул"""
         self.delete_timeoff_btn.should_be(Displayed).click()
